@@ -1,5 +1,8 @@
 name: Extract ZIP
 
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
 
@@ -8,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Install unzip
         run: sudo apt-get update && sudo apt-get install -y unzip
